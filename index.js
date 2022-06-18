@@ -1,16 +1,26 @@
 const express = require("express");
+<<<<<<< HEAD
 const app = express();
 app.use(express.json());
 
 const port = process.env.PORT || 3000;
 
 const countries = require("./countries.js");
+=======
+const wishlistRouter = require("./wishlistRouter.js");
+const countries = require("./countries.js");
+
+const app = express();
+app.use(express.json());
+app.use("/api/countries", wishlistRouter);
+>>>>>>> 2712042dab4d9bfba04b65a0b922e8bb575182ee
 
 app.get("/api/countries", (req, res, next) => {
   //console.log(req);
   res.send(countries);
 });
 
+<<<<<<< HEAD
 app.get("/api/countries/:code", (req, res, next) => {
   const countryCode = req.params;
   const lengthTest = countryCode.code.length;
@@ -56,7 +66,14 @@ app.delete("/api/countries/:name", (req, res, next) => {
     countries.splice(countryIndex, 1);
     res.status(201).send(countries);
   });
+=======
+const port = process.env.PORT || 3000;
+>>>>>>> 2712042dab4d9bfba04b65a0b922e8bb575182ee
 
 app.listen(port, () => {
   console.log(`App is listening to Port: ${port}`);
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2712042dab4d9bfba04b65a0b922e8bb575182ee
